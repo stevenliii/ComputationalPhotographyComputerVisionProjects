@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chris Wirgler Group</title>
+    <style>
+        body 
+        {
+            background-color: rgb(229, 204, 245);
+            margin: 0 100px; 
+        }
+        
+        .center {
+            text-align: center;
+        }
+        .element {
+            border-width: 6px;
+            border-style: dashed;
+            border-color: indigo;
+            padding: 10px;
+    }   
+    p {
+        line-height: 1.7;
+    }
+    </style>
+</head>
+<body>
+    <h1 class="center element">CS4475 Project 1</h1>
+    <br>
+    <header>
+        <h2 style="display: inline">Group Name: </h2> 
+        <p style ="display: inline; font-size: 17px; font-family:Verdana, Geneva, Tahoma, sans-serif;">Chris Wirgler</p>
+    </header>
+    <br>
+    <header>
+        <h2 style="display: inline">Members: </h2> 
+        <p style ="display: inline; font-size: 17px; font-family:Verdana, Geneva, Tahoma, sans-serif">Steven Li, Stuthi Bhat, Raymond Liu, Victoria Choi</p>
+    </header>
+    <br>
+    <header>
+        <h2 class="center">Project Overview</h2>
+        <p style="font-size: 17px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+            Our project implements different types of slide transitions in a few different functions. 
+            Given two input images of the same size, a start image and an end image, our project contains multiple functions 
+            that each generate a different transition between the two, including a sliding transition, a fade transition, a 
+            circle transition, a flash transition, and a split transition. The transition is generated as a set of images in a directory specified as a parameter in the 
+            method, which can be combined in a video editor to create a cohesive video. 
+        </p>
+    </header>
+    <br>
+
+    <header>
+        <h2 class="center">Procedure</h2>
+        <p style="font-size: 17px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+            
+            This section outlines the low level workflow procedure of our project. It will be delineated in steps. Here is the python script: 
+            <br><br>
+            https://drive.google.com/file/d/1056LxlLksZx24cy4wyGRe9hALBPow79c/view?usp=sharing
+            <br><br>
+            <b>Inputs</b>: Two images of the same size, a start and and end image (we assume both input images are of the same size)
+            <br><br>
+            Create and navigate to a directory called yourDirectory (or whatever name you please) somewhere in your files where you would like your transition sequences to be saved. This directory will hold other directories containing transition sequences. Record the path name to this directory, ensuring that it ends in a slash.
+            <br><br>
+            &nbsp &nbsp &nbsp &nbsp Example: /Users/StevenLi/Desktop/CS4475/Project1/outputs/
+            <br><br>
+            Add two images called start.ext and end.ext into yourDirectory. Ensure they have the same size. If they do not, crop them before continuing the following steps. Also, add the transition.py file to the directory.
+            <br><br>
+            Within yourDirectory, create another directory called yourTransition (or whatever name you please). Record the name of this directory, ensuring that it ends in a slash. This will be the directory in which the transition sequence is saved.
+            <br><br>
+            &nbsp &nbsp &nbsp &nbsp Example: slideoutputsequence/
+            <br><br>
+            Open the transitions.py script. At the top of the file, input the path names of yourDirectory and yourTransition you recorded earlier into the indicated variables. At the bottom of the file, input the names of the image files into the indicated variables. At the very bottom, uncomment the function corresponding to the transition you would like to perform. Edit the frameCount parameter depending on how many total images you would like in your final sequence.
+            <br><br>
+            In your command line, run they command python transitions.py
+            <br><br>
+            Check yourTransition. It should contain new images.
+            <br><br>
+            Open a video editing application of your choice. Import all images in the sequence as static images in order. Decrease the time frame of each image to a fraction of a second (no longer than 0.1 seconds per image). Set the transition between images to none.
+            <br><br>
+            Export the video from the image editor. You will be left with a video of the transition.
+            <br><br>
+            Optionally, if the video editor displays each image for too long, you can speed the video up after exporting.
+            <br><br>
+            <b>Outputs</b>: A video of the desired transition from the start image to the end image
+        </p>
+    </header>
+    <br>
+    <br>
+    <div style="text-align:center"> 
+        <header>
+            <h3 class="center">Input Images</h3>
+        </header>
+        <p style="font-size: 17px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+            Here are the images we will use as an example. We placed a transition between each image and compiled them all into an image.
+        </p>
+        <img src="img1.png" alt="Image 1" style="width:500px;height:600px;">
+        <img src="img2.png" alt="Image 2" style="width:500px;height:600px;">
+        <img src="img3.png" alt="Image 3" style="width:500px;height:600px;">
+        <img src="img4.png" alt="Image 4" style="width:500px;height:600px;">
+        <img src="img5.png" alt="Image 5" style="width:500px;height:600px;">
+        <img src="img6.png" alt="Image 6" style="width:500px;height:600px;">
+    </div>
+    <br>
+    <div style="text-align:center"> 
+        <header>
+            <h3 class="center">Output Video</h3>
+        </header>
+        <p style="font-size: 17px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+            Here is the output video. Enjoy!
+        </p>
+            <video class="center" width="1000px" height="600px" controls>
+                <source src="CS4475Project.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+    </div>
+</body>
+</html>

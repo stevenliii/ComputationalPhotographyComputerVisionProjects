@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project 3</title>
+    <style>
+        body 
+        {
+            background-color: rgb(122, 115, 226);
+            margin: 0 100px; 
+        }
+        
+        .center {
+            text-align: center;
+        }
+        .element {
+            border-width: 6px;
+            border-style: dashed;
+            border-color: green;
+            padding: 10px;
+    }   
+    p {
+        line-height: 1.7;
+    }
+    </style>
+</head>
+<body>
+    <h1 class="center element">CS4475 Project 3</h1>
+    <br>
+    <br>
+    <header>
+        <h2 style="display: inline">Members: </h2> 
+        <p style ="display: inline; font-size: 17px; font-family:Verdana, Geneva, Tahoma, sans-serif">Stuthi Bhat, Victoria Choi, Steven Li, Raymond Liu</p>
+    </header>
+    <br>
+    <header>
+        <h2 class="center">Project Overview</h2>
+        <p style="font-size: 17px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+            Our project takes in a photorealistic image of a human face, and turns it into a creative rendition of Andy Warhol’s famous “Marilyn Monroe” painting. 
+            We found Warhol’s messages about often forgotten humanity in a world of materialism, commodity, and celebrity interesting; that even behind the most 
+            superficial concepts lies deeper meaning and significance. We wanted to present our own take on a similar concept. We decided to render our own photos 
+            into the likeness of his art piece, but with more intense colors to symbolize that we are all more complex and multidimensional than is visible at a simple glance.
+            <br><br>
+            Given an input image, the code first uses haar-cascade face detection to crop the image to the largest face in the input image. Then, the image is mapped to a color 
+            space containing around 64 colors. Morphological transformations are then used to reduce noise and connect blocks of color, specifically 3 iterations of erosion followed 
+            by an iteration of dilation with a kernel size of 5. Finally, the blocks of colors are altered to produce the characteristic popping style of Andy Warhol’s painting. 
+            To do this, each block of color is stored in a dictionary and mapped to another slightly altered, brighter color. To attain the color it is mapped to, each value in 
+            the BGR channel is shifted by a random value before converting to the HSV color space and scaling up the saturation value, preserving the core color but brightening the pixels. 
+            This process is performed 9 times with different colors before finally being collaged into a 3x3 grid. This process produces a final collage resembling Warhol’s painting, 
+            but with even more intense color rendering.
+
+        </p>
+    </header>
+    <br>
+
+    <header>
+        <h2 class="center">Procedure</h2>
+        <p style="font-size: 17px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+            
+            This section outlines the low level workflow procedure of our project. It will be delineated in steps.
+            <br><br>
+            Inputs: An image containing a clear face that you would like to work with. If there are multiple faces in the image, the largest one in the frame will be selected.
+            <br><br>
+            Enter the image of interest into the indicated location in the python script.
+            <br><br>
+            Enter the BGR colors you would like each of your images in the collage to be based around into colorsList.
+            <br><br>
+            The following steps are repeated 9 times on the input image and stored in a list, each one using a different color from the colors list:
+            <br><br>
+            First, the cropFace function is applied to the image. This function identifies the largest face in the frame using Haar-cascade trained data and returns a cropped image containing only the face.
+            <br><br>
+            Next, the mapToBlockColors function is applied to the image. This function maps the function to a color space of only about 64 colors, creating larger blocks of colors. Morphological transformations are then used to reduce noise and connect blocks of color, specifically 3 iterations of erosion followed by an iteration of dilation with a kernel size of 5.
+            <br><br>
+            Next, the mapColors function is applied to the image to produce the characteristic popping style of Andy Warhol’s painting. To do this, each block of color is stored in a dictionary and mapped to another slightly altered, brighter color. To attain the color it is mapped to, each value in the BGR channel is shifted by a random value before converting to the HSV color space and scaling up the saturation value, preserving the core color but brightening the pixels.
+            <br><br>
+            Finally, the collage function is used to put all images in the list into a 3x3 collage. This uses indexing techniques to copy over blocks into an array 9 times the size of the original.
+            <br><br>
+            Output: A custom artistic image made of a 3x3 grid of edited images, resembling Andy Warhol’s “Marilyn Monroe.”
+
+        </p>
+    </header>
+    <br>
+    <br>
+    <div style="text-align:center"> 
+        <header>
+            <h3 class="center">Input Images</h3>
+        </header>
+        <p style="font-size: 17px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+            A .png image containing a face you would like to be featured in the final image:
+        </p>
+        <img src="input.png" alt="Image 1" style="width:600px;height:600px;">
+    </div>
+    <br>
+    <div style="text-align:center"> 
+        <header>
+            <h3 class="center">Output Images</h3>
+        </header>
+        <p style="font-size: 17px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+            A .png image containing the final edited image. These are the output images:
+        </p>
+        <img src="output.png" alt="Image 1" style="width:600px;height:600px;">
+    </div>
+    <div style="text-align:center">
+        <header>
+            <h3 class="center">Referenced Sources</h3>
+        </header>
+        <p style="font-size: 17px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+            We used the Haar-cascades data set for facial recognition, which is a trained dataset that is used to identify faces. We also simply used OpenCV documentation to understand some of the new functions we were using.
+            <br><br>
+            Haar-Cascades <br>
+            https://github.com/opencv/opencv/tree/master/data/haarcascades
+            <br><br>
+            Morphological Transformation<br>
+            https://docs.opencv.org/4.x/d9/d61/tutorial_py_morphological_ops.html
+            <br><br>
+            Changing Color Spaces from BGR to HSV<br>
+            https://docs.opencv.org/4.x/df/d9d/tutorial_py_colorspaces.html
+
+        </p>
+    </div>
+</body>
+</html>
